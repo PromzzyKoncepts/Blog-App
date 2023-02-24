@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  #tests go here
+  # tests go here
   subject { Post.new(author: User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.'), title: 'Hello', text: 'This is for testing') }
 
-  before {subject.save}
+  before { subject.save }
 
   it 'expects post title to be invalid' do
-    subject.title = nil 
+    subject.title = nil
     expect(subject).to_not be_valid
   end
 

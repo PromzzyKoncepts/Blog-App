@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
@@ -11,7 +10,7 @@ RSpec.describe Like, type: :model do
     subject.author = nil
     expect(subject).to_not be_valid
   end
-  
+
   it 'Post likes counter can be set' do
     subject.post = Post.new(author: user, title: 'Post One', text: 'This is the post one')
     subject.send(:update_likes_counter)
