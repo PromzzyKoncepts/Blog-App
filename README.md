@@ -146,7 +146,7 @@ To run tests, run the following command:
 
 
 ```sh
-  rails test test/models/article_test.rb
+  Rspec spec
 ```
 
 ### Deployment
