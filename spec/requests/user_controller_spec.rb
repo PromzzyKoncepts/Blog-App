@@ -26,7 +26,7 @@ RSpec.describe 'UsersController', type: :request do
     it "renders 'show' template" do
       expect(response).to render_template('show')
     end
-    
+
     it 'should display the correct placeholder' do
       expect(response.body).to include 'This page shows the page for a given logged in user'
     end
