@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
-second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
+first_user = User.create(name: 'Tom', photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80', bio: 'Teacher from Mexico.')
+second_user = User.create(name: 'Lilly', photo: '', bio: 'Teacher from Poland.')
 
 first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
-second_post = Post.create(author: second_user, title: 'Hello', text: 'I cant believe i am counting')
-third_post = Post.create(author: first_user, title: 'Hello', text: 'Mind your business')
-fourth_post = Post.create(author: second_user, title: 'Hello', text: 'Okay, I am done')
+second_post = Post.create(author: second_user, title: 'Good bye', text: 'I cant believe i am counting')
+third_post = Post.create(author: first_user, title: 'My First Blog', text: 'Mind your business')
+fourth_post = Post.create(author: second_user, title: 'How to lambano Gods Blessings', text: 'Okay, I am done')
 
-Comment.create(post: first_post, author: second_user, text: 'Hi Tom!' )
-Comment.create(post: second_post, author: second_user, text: 'How come!' )
-Comment.create(post: third_post, author: first_user, text: 'I am not moved!' )
+Comment.create(post: first_post, author: first_user, text: 'Hi Tom!, I am trying to reach out to you' )
+Comment.create(post: second_post, author: second_user, text: 'How come you are obsessed with me' )
+Comment.create(post: third_post, author: first_user, text: 'I am not moved, I dont care at all' )
