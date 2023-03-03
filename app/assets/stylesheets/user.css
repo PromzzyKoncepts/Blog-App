@@ -26,20 +26,39 @@ body {
   width: 35vh;
 }
 
-.username a{
+a {
+  text-decoration: none;
+}
+
+.username a {
   font-size: 40px;
   text-decoration: none;
   color: #282828;
   font-family: 'poppins', sans-serif;
 }
 
-a {
-  text-decoration: none;
+.btn a {
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-btn a {
+  font-size: 12px;
+  color: #fff;
+  background-color: rgb(179, 65, 65);
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .link:hover a {
   color: antiquewhite;
-  background-color:rgb(150, 52, 52);
+  background-color: rgb(150, 52, 52);
   padding: 10px;
   border-radius: 8px;
   transition: all 0.5s ease-out 0.1s;
@@ -49,7 +68,8 @@ a {
   display: flex;
   justify-content: space-between;
 }
-.see-post{
+
+.see-post {
   transform: translateY(3rem);
 }
 
@@ -60,7 +80,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 4fr;
   gap: 0;
-  box-shadow: 0px 0px 10px #00000062;
+  box-shadow: 0 0 10px #00000062;
 }
 
 .show-image {
@@ -86,23 +106,13 @@ a {
   padding-bottom: 50px;
 }
 
-.cards>div:nth-child(odd) {
+.cards > div:nth-child(odd) {
   background-color: #e2e2e2;
   color: #282828;
 }
+
 .small {
   float: right;
-}
-
-.btn a {
-  font-weight: 700;
-  color: rgb(0, 0, 0);
-  border-radius: 5px;
-  padding: 10px;
-  margin: 50px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .btn a:hover {
@@ -112,7 +122,6 @@ a {
 /* THIS PART IS FOR POST/INDEX */
 .comment {
   padding: 1rem 3rem;
-
 }
 
 .comments {
@@ -146,17 +155,9 @@ a {
   border-radius: 10px;
 }
 
-.post-btn a{
-  font-size: 12px;
-  color: #fff;
-  background-color: rgb(179, 65, 65);
-  border-radius: 5px;
-  padding: 10px;
-}
-
 /* THIS PART IS FOR POST/SHOW */
 .post-wrapper {
   padding: 2rem 3rem;
-  box-shadow: 0px 0px 10px #00000062;
+  box-shadow: 0 0 10px #00000062;
   background-color: #fff;
 }
