@@ -4,4 +4,159 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+/* FOR USERS/INDEX */
+.user-container {
+  padding: 3rem 6rem;
+  background-color: #f4f4f4;
+}
+
+.user-wrapper {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 0;
+}
+
+.user-image {
+  width: 35vh;
+}
+
+.username a{
+  font-size: 40px;
+  text-decoration: none;
+  color: #282828;
+  font-family: 'poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link:hover a {
+  color: antiquewhite;
+  background-color:rgb(150, 52, 52);
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.5s ease-out 0.1s;
+}
+
+.user-details {
+  display: flex;
+  justify-content: space-between;
+}
+.see-post{
+  transform: translateY(3rem);
+}
+
+/* FOR USERS/SHOW  */
+.show-wrapper {
+  background-color: #fff;
+  padding: 2rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 0;
+  box-shadow: 0px 0px 10px #00000062;
+}
+
+.show-image {
+  width: 30vh;
+}
+
+.user-name {
+  font-size: 35px;
+}
+
+.post-count {
+  float: right;
+}
+
+.bio {
+  background: #f4f4f4;
+  margin-top: 5px;
+  padding: 1rem 3rem;
+}
+
+.post-card {
+  padding: 1rem 3rem;
+  padding-bottom: 50px;
+}
+
+.cards>div:nth-child(odd) {
+  background-color: #e2e2e2;
+  color: #282828;
+}
+.small {
+  float: right;
+}
+
+.btn a {
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn a:hover {
+  color: brown;
+}
+
+/* THIS PART IS FOR POST/INDEX */
+.comment {
+  padding: 1rem 3rem;
+
+}
+
+.comments {
+  overflow-y: scroll;
+  max-height: 170px;
+  margin: 2rem;
+  background-color: #f4f4f4;
+}
+
+.comments::-webkit-scrollbar {
+  width: 1em;
+}
+
+.comments::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(75, 75, 75, 0.226);
+}
+
+.comments::-webkit-scrollbar-thumb {
+  background-color: rgb(180, 180, 180);
+  outline: 1px solid rgb(185, 185, 185);
+  border-radius: 7px;
+}
+
+.comments:active {
+  cursor: grabbing;
+}
+
+.D-comments::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(99, 99, 99);
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+}
+
+.post-btn a{
+  font-size: 12px;
+  color: #fff;
+  background-color: rgb(179, 65, 65);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* THIS PART IS FOR POST/SHOW */
+.post-wrapper {
+  padding: 2rem 3rem;
+  box-shadow: 0px 0px 10px #00000062;
+  background-color: #fff;
 }
