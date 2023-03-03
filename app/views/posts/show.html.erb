@@ -1,1 +1,20 @@
-<h1>This is the details for a particular post of a given user</h1>
+<div>
+  <div>
+    <div>
+      <h3> <%= @post.title%> by <%= @user.name%> </h3>
+      <small><%=@post.comments_counter%> comments</small>
+      <small><%=@post.likes_counter%> likes</small>
+    </div>
+    <div>
+      <p> <%= @post.text%> </p>
+    </div>
+  </div>
+
+  <% @comments = Comment.where(post_id:@post.id)%>
+  <div>
+  <%@comments.each do |comment| %>
+    <p><%= @user.name%>: <%= comment.text%></p>
+    
+  <% end %>
+  </div>
+</div>
