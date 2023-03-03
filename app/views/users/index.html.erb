@@ -1,1 +1,19 @@
-<h1>This page lists all the registered users</h1>
+<div class= "user-container">
+  <div class= "user-wrapper">
+    <% @users.each do |user|   %>
+      <div>
+        <img src= <%= user.photo %> class= 'user-image'>
+      </div>
+      <div class= "user-details">
+        <h3 class='username'><%= link_to user.name, "/users/#{user.id}"%></h3>
+        <div class= "see-post">
+          <p>Number of posts: <%= user.posts_counter %> </p>
+        
+          <div class= "link">
+            <%= link_to 'Show Post', user %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
