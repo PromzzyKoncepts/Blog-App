@@ -1,1 +1,30 @@
-<h1>This page shows the page for a given logged in user</h1>
+<div>
+  <div>
+    <div>
+      <img src= <%= @user.photo %>>
+      <div>
+        <h2><%=@user.name%></h2>
+        <p>Number of posts: <%= @user.posts_counter %> </p>
+      </div>
+    </div>
+
+    <%# this is for bio %>
+    <div>
+      <h4>Bio:</h4>
+      <p> <%= @user.bio %> </p>
+    </div>
+
+    <%# this part is to display last three posts and display it %>
+    <% @user.returns_last_three_post.each do |post| %>
+      <div>
+        <h3>Post #<%= post.id%></h3>
+        <p><%= post.title%></p>
+      </div>
+      <small><%=post.comments_counter%> comments</small>
+      <small><%=post.likes_counter%> likes</small>
+    <% end %>
+    <div id="button_container">
+      <%= link_to  "See all posts", user_posts_path(@user.id) %>
+  </div>
+  </div>
+</div>
