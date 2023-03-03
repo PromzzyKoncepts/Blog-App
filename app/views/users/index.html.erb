@@ -1,11 +1,15 @@
 <div>
   <div>
-  <% @users.each do |user| %>
-    <img src= "#{user.photo}">
-    <h3><%=user.name%></h3>
-  <% end %>
-  
-  </div>
-  <div>
+    <% @users.each do |user|   %>
+      <div>
+        <img src= <%= user.photo %>>
+      </div>
+      <div>
+         <h3><%= link_to user.name, "/users/#{user.id}"%></h3>
+        <p>Number of posts: <%= user.posts_counter %> </p>
+        
+      </div>
+      <<%= link_to 'Show Post', user %>>    
+    <% end %>
   </div>
 </div>
