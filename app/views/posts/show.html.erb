@@ -2,6 +2,10 @@
   <div class='post-wrapper'>
     <div>
       <h2 class='user-name'> <%= @post.title%> by <%= @user.name%> </h2>
+       <%= form_with model: @like, url: "/users/#{@post.author.id}/posts/#{@post.id}/likes", method: :post, scope: :like do |f| %>
+        <%= f.submit "Like" %>
+      <% end %>
+
       <div class='small'>
         <small><%=@post.comments_counter%> comments</small>
         <small><%=@post.likes_counter%> likes</small>
@@ -21,4 +25,11 @@
       <% end %>
     </div>
   </div>
+
+  <%= form_with model: @comment, url:  user_post_comments_path(user_id: @current_user.id, post_id: @post.id), method: :post, scope: :comment do |f| %>
+  <div>
+    <%= f.text_area :text, placeholder: "Add Comment" %>
+    <%= f.submit "Comment" %>
+  </div>
+  <% end %>
 </div>
