@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base  
+class ApplicationController < ActionController::Base
   def current_user
     User.first
   end
