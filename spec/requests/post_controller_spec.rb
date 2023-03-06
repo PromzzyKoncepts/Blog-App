@@ -1,27 +1,26 @@
 require 'rails_helper'
 
 RSpec.describe 'PostsController', type: :request do
-  describe "GET #index" do
+  describe 'GET #index' do
     let(:user) { FactoryBot.create(:user) }
-    let!(:post_1) { FactoryBot.create(:post, author_id: user.id) }
-    let!(:post_2) { FactoryBot.create(:post, author_id: user.id) }
+    let!(:post1) { FactoryBot.create(:post, author_id: user.id) }
+    let!(:post2) { FactoryBot.create(:post, author_id: user.id) }
 
     context 'when the user and the post exist' do
       before { get "/users/#{user.id}" }
 
-      it "assigns the user and posts variables" do
+      it 'assigns the user and posts variables' do
         expect(assigns(:user)).to eq(user)
-        expect(assigns(:posts)).to eq([post_1, post_2])
+        expect(assigns(:posts)).to eq([post1, post2])
       end
 
-      it "returns a status response of 200" do
+      it 'returns a status response of 200' do
         expect(response).to have_http_status(:ok)
       end
     end
   end
 
-
- describe 'Get #show' do
+  describe 'Get #show' do
     let(:user) { FactoryBot.create(:user) }
     let(:post) { FactoryBot.create(:post, author_id: user.id) }
 

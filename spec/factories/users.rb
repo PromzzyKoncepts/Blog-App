@@ -14,7 +14,7 @@ FactoryBot.define do
       transient do
         posts_count { 5 }
       end
-      
+
       after(:create) do |user, evaluator|
         create_list(:post, evaluator.posts_count, author: user)
       end
@@ -23,6 +23,5 @@ FactoryBot.define do
     factory :user_with_bio, traits: [:with_bio]
     factory :user_with_photo, traits: [:with_photo]
     factory :user_with_posts, traits: [:with_posts]
-
   end
 end

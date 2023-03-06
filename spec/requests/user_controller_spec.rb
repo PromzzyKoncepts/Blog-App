@@ -7,41 +7,41 @@ RSpec.describe UsersController, type: :controller do
 
     before { get :index }
 
-    it "renders the :index template" do
+    it 'renders the :index template' do
       expect(response).to render_template(:index)
     end
 
-    it "assigns @users" do
+    it 'assigns @users' do
       expect(assigns(:users)).to match_array([user1, user2])
     end
   end
 
   describe 'GET #show' do
-    let!(:user) { FactoryBot.create(:user_with_posts) } 
+    let!(:user) { FactoryBot.create(:user_with_posts) }
 
     before { get :show, params: { id: user.id } }
 
-    it "renders the :show template" do
+    it 'renders the :show template' do
       expect(response).to render_template(:show)
     end
 
-    it "assigns @user" do
+    it 'assigns @user' do
       expect(assigns(:user)).to eq(user)
     end
 
-    it "assigns @posts" do
+    it 'assigns @posts' do
       expect(assigns(:posts)).to eq(user.posts)
     end
 
-    context "when the user does not exist" do
-      it "raises an ActiveRecord::RecordNotFound error" do
-        expect {
+    context 'when the user does not exist' do
+      it 'raises an ActiveRecord::RecordNotFound error' do
+        expect do
           get :show, params: { id: 9999 }
-        }.to raise_error(ActiveRecord::RecordNotFound)
+        end.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
-    it "displays no posts for a user with no posts" do
+    it 'displays no posts for a user with no posts' do
       user = FactoryBot.create(:user)
 
       get :show, params: { id: user.id }
@@ -50,7 +50,7 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns[:posts]).to be_empty
     end
 
-    it "displays a list of posts belonging to the user" do
+    it 'displays a list of posts belonging to the user' do
       user = FactoryBot.create(:user_with_posts)
 
       get :show, params: { id: user.id }
@@ -59,11 +59,10 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns[:posts]).to match_array(user.posts)
     end
 
-    it "returns a 404 status code when user is not found" do
-      expect {
+    it 'returns a 404 status code when user is not found' do
+      expect do
         get :show, params: { id: 'a bogus id' }
-      }.to raise_error(ActiveRecord::RecordNotFound)
+      end.to raise_error(ActiveRecord::RecordNotFound)
     end
-    
   end
 end
