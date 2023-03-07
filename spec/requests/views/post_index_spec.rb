@@ -23,31 +23,16 @@ RSpec.describe 'Post Page Index', type: :feature do
     visit user_posts_path(@user.id)
   end
 
-  it 'shows the username of user' do
+  it 'shows the username of user and shows number of posts of user and shows how many comments a post has and shows how many likes a post has' do
     expect(page).to have_content(@user.name)
-  end
-
-  it 'shows number of posts of user' do
     expect(page.body).to have_content(@user.posts_counter.to_s)
-  end
-
-  it 'shows how many comments a post has' do
     expect(page.body).to have_content(@post.comments_counter.to_s)
-  end
-
-  it 'shows how many likes a post has' do
     expect(page.body).to have_content(@post.likes_counter.to_s)
   end
 
-  it 'shows the body of a post' do
+  it 'shows the body of a post and shows first comments on a post and shows section for pagination' do
     expect(page).to have_content('This is a sample text')
-  end
-
-  it 'shows first comments on a post' do
     expect(page).to have_content('This is a sample comment')
-  end
-
-  it 'shows section for pagination' do
     expect(page).to have_content('Pagination')
   end
 end

@@ -23,31 +23,16 @@ RSpec.describe 'Post Page Show', type: :feature do
     visit user_post_path(@user.id, @post.id)
   end
 
-  it 'shows the title of the post' do
+  it 'shows the title of the post and shows the writer of the post and shows how many likes it has, shows how many comments it has' do
     expect(page).to have_content(@post.title)
-  end
-
-  it 'shows the writer of the post' do
     expect(page).to have_content("by #{@user.name}")
-  end
-
-  it 'shows how many likes it has' do
     expect(page.body).to have_content(@post.likes_counter.to_s)
-  end
-
-  it 'shows how many comments it has' do
     expect(page.body).to have_content(@post.comments_counter.to_s)
   end
 
-  it 'shows the body of the post' do
+  it 'shows the body of the post and shows the username of each commentor and shows comment of each commentor' do
     expect(page).to have_content('Reviewer, please approve this PR')
-  end
-
-  it 'shows the username of each commentor' do
     expect(page).to have_content(@user.name)
-  end
-
-  it 'shows comment of each commentor' do
     expect(page).to have_content('hello @reviewer, kindly approve')
   end
 end

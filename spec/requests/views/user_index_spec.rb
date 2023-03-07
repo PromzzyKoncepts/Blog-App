@@ -10,25 +10,27 @@ RSpec.describe 'User pages test index/show ', type: :feature do
     @post4 = Post.create(title: 'Rspec test 4', text: 'rspec test for post', author_id: @first_user)
   end
 
-  it 'Should show the username of all users' do
+  it 'Should show the username of all users and Should show the user photo for all users and Should show the profile picture' do
     visit users_path
     expect(page).to have_content(@first_user.name)
+    expect(page).to have_css('img')
+    expect(page).to have_selector("img[src='#{@first_user.photo}']")
   end
 
-  it 'Should show the user photo for all users' do
-    visit users_path
-    expect(page).to have_css('img')
-  end
+  # it 'Should show the user photo for all users' do
+  #   # visit users_path
+  #   expect(page).to have_css('img')
+  # end
 
   it 'Should show the number of posts for each user' do
     visit users_path
     expect(page).to have_content(@first_user.posts_counter)
   end
 
-  it 'Should show the profile picture' do
-    visit users_path
-    expect(page).to have_selector("img[src='#{@first_user.photo}']")
-  end
+  # it 'Should show the profile picture' do
+  #   visit users_path
+  #   expect(page).to have_selector("img[src='#{@first_user.photo}']")
+  # end
 
   it 'Should show redirects me to that user"s posts page. ' do
     visit user_path(@first_user)
