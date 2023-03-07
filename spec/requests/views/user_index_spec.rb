@@ -17,20 +17,10 @@ RSpec.describe 'User pages test index/show ', type: :feature do
     expect(page).to have_selector("img[src='#{@first_user.photo}']")
   end
 
-  # it 'Should show the user photo for all users' do
-  #   # visit users_path
-  #   expect(page).to have_css('img')
-  # end
-
   it 'Should show the number of posts for each user' do
     visit users_path
     expect(page).to have_content(@first_user.posts_counter)
   end
-
-  # it 'Should show the profile picture' do
-  #   visit users_path
-  #   expect(page).to have_selector("img[src='#{@first_user.photo}']")
-  # end
 
   it 'Should show redirects me to that user"s posts page. ' do
     visit user_path(@first_user)
