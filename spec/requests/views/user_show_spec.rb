@@ -34,7 +34,6 @@ RSpec.describe 'User Page show', type: :feature do
     expect(page.body).to have_content(@user.posts_counter.to_s)
   end
 
-  
   it 'shows last three posts of user' do
     expect(page).to have_content(@post1.title)
     expect(page).to have_content(@post2.title)

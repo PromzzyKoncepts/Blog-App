@@ -11,13 +11,9 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template(:index)
     end
 
-    it "returns http success" do
+    it 'returns http success' do
       expect(response).to have_http_status(:success)
     end
-
-    # it 'assigns @users' do
-    #   expect(assigns(:users)).to match_array([user1, user2])
-    # end
   end
 
   describe 'GET #show' do

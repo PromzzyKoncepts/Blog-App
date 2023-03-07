@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'User pages test index/show ', type: :feature do
   before(:all) do
-    @first_user = User.create(name: 'Promise', photo: 'https://avatars.githubusercontent.com/u/69632681?v=4', bio: 'test for User')
+    @first_user = User.create(name: 'Promise', photo: 'https://avatars.githubusercontent.com/u/69632681?v=4',
+                              bio: 'test for User')
     @post1 = Post.create(title: 'Rspec test 1', text: 'rspec test for post', author_id: @first_user)
     @post2 = Post.create(title: 'Rspec test 2', text: 'rspec test for post', author_id: @first_user)
     @post3 = Post.create(title: 'Rspec test 3', text: 'rspec test for post', author_id: @first_user)
