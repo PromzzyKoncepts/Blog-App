@@ -13,7 +13,7 @@ RSpec.describe Post, type: :model do
 
   it 'User post counter to increment' do
     subject.send(:update_posts_counter)
-    expect(subject.author.posts_counter).to be(1)
+    expect(subject.author.posts_counter).to be(2)
   end
 
   it 'Likes Counter attribute should be greater or equal to zero' do

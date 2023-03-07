@@ -1,33 +1,57 @@
 require 'rails_helper'
 
 RSpec.describe 'PostsController', type: :request do
-  context 'get index for posts' do
-    before(:example) { get('/users/1/posts') }
-    it 'should display the correct placeholder' do
-      expect(response.body).to include 'Here is a list of all posts for a given user'
-    end
+  describe 'GET #index' do
+    let(:user) { FactoryBot.create(:user) }
+    let!(:post1) { FactoryBot.create(:post, author_id: user.id) }
+    let!(:post2) { FactoryBot.create(:post, author_id: user.id) }
 
-    it 'should have a status response of 200' do
-      expect(response).to have_http_status(200)
-    end
+    context 'when the user and the post exist' do
+      before { get "/users/#{user.id}" }
 
-    it "renders 'index' template" do
-      expect(response).to render_template('index')
+      it 'assigns the user and posts variables' do
+        expect(assigns(:user)).to eq(user)
+        expect(assigns(:posts)).to eq([post1, post2])
+      end
+
+      it 'returns a status response of 200' do
+        expect(response).to have_http_status(:ok)
+      end
     end
   end
 
-  context 'Get #show for posts' do
-    before(:example) { get('/users/1/posts/1') }
-    it 'should have a status response of 200' do
-      expect(response).to have_http_status(200)
+  describe 'Get #show' do
+    let(:user) { FactoryBot.create(:user) }
+    let(:post) { FactoryBot.create(:post, author_id: user.id) }
+
+    context 'when the user and the post exist' do
+      before { get "/users/#{user.id}/posts/#{post.id}" }
+
+      it 'assigns the user, posts and post variables' do
+        expect(assigns(:user)).to eq(user)
+        expect(assigns(:posts)).to eq([post])
+        expect(assigns(:post)).to eq(post)
+      end
+
+      it 'returns a status response of 200' do
+        expect(response).to have_http_status(200)
+      end
+
+      it 'assigns the current_user variable' do
+        expect(assigns(:current_user)).to_not be_nil
+      end
     end
 
-    it "renders 'show' template" do
-      expect(response).to render_template('show')
+    context 'when the user does not exist' do
+      it 'raises an ActiveRecord::RecordNotFound error' do
+        expect { get "/users/999/posts/#{post.id}" }.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
 
-    it 'should display the correct placeholder' do
-      expect(response.body).to include 'This is the details for a particular post of a given user'
+    context 'when the post does not exist' do
+      it 'raises an ActiveRecord::RecordNotFound error' do
+        expect { get "/users/#{user.id}/posts/999" }.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end
