@@ -306,7 +306,7 @@ a {
   right: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, #f4dc03);
+  background: linear-gradient(270deg, transparent, #fde401);
   animation: btn-anim3 1s linear infinite;
   animation-delay: 0.5s;
 }
