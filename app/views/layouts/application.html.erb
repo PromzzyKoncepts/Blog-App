@@ -14,8 +14,8 @@
     <% if user_signed_in? %>
       <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "logout"  %>
     <%end%>
-    <p class="bg-cyan-500 text-center font-important notice" ><%= notice %></p>       
-    <p class="bg-red-500 text-center font-important alert"><%= alert %></p>
+    <p class=" notice" ><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
