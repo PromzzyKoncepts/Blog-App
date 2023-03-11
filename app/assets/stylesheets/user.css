@@ -126,7 +126,7 @@ a {
   padding: 1rem 3rem;
 }
 
-.comments {
+/* .comments {
   overflow-y: scroll;
   max-height: 170px;
   margin: 2rem;
@@ -155,7 +155,7 @@ a {
   background-color: rgb(99, 99, 99);
   outline: 1px solid slategrey;
   border-radius: 10px;
-}
+} */
 
 /* THIS PART IS FOR POST/SHOW */
 .post-wrapper {
