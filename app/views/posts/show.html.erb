@@ -6,23 +6,21 @@
         <%= f.submit "Like" %>
       <% end %>
 
+
+      <% if can? :delete, @post %>
+        <div class="">
+          <%= button_to 'Delete', delete_user_post_path(user_id: @user.id, id: @post.id), class:"", method: :delete %>
+        </div>
+      <%end%>
+
       <div class='small'>
         <small><%=@post.comments_counter%> comments</small>
         <small><%=@post.likes_counter%> likes</small>
       </div>
     </div>
+
     <div>
       <p> <%= @post.text%> </p>
-    </div>
-  </div>
-
-  <div class='comments'>
-    <% @comments = Comment.where(post_id:@post.id)%>
-    <div>
-      <%@comments.each do |comment| %>
-        <p><%= @user.name%>: <%= comment.text%></p>
-        
-      <% end %>
     </div>
   </div>
 
@@ -32,4 +30,20 @@
     <%= f.submit "Comment" %>
   </div>
   <% end %>
+
+    <div class='comments'>
+      <% @comments = Comment.where(post_id:@post.id)%>
+      <div>
+        <%@comments.each do |comment| %>
+          <p><%= comment.author.name%>: <%= comment.text%></p>
+          <% if can? :delete, comment %>
+            <div>
+              <%= button_to 'Delete', delete_user_post_comment_path(user_id: @current_user.id, post_id: @post.id, id: comment.id), class:"", method: :delete %>
+            </div>
+          <% end %>
+          
+        <% end %>
+      </div>
+    </div>
+
 </div>
